@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"
+    />
+    <script src="https://cdn.socket.io/4.8.1/socket.io.min.js" integrity="sha384-mkQ3/7FUtcGyoppY6bz/PORYoGqOl7/aSUMn2ymDOJcapfS6PHqxhRTMh1RR0Q6+" crossorigin="anonymous"></script>
+</head>
+<body>
+    <main>
+        <div class="topBar"><%=user.username%></div>
+        <div class="sideBar">
+            <div class="sideBar1">
+                <i class="ri-chat-smile-3-fill"></i>
+                <i class="ri-share-circle-fill"></i>
+            </div>
+            
+            <div class="sideBar2"></div>
+
+        </div>
+        <div class="contactBox" id="<%=user._id%>">
+            <div class="contactHeader">
+                <div class="contactHeader1">
+                    <div class="chatText">Chats</div>
+                    <div class="contactHeader1Box">
+                        <i class="ri-chat-check-line"></i>
+                    </div>
+                    <div class="contactHeader1Box">
+                        <i class="ri-login-box-line"></i>
+                    </div>
+                </div>
+                <div class="contactHeader2">
+                <input class="contactHeader2Input" placeholder="Typ a message" type="text" name="message" id="">
+
+                </div>
+                <div class="contactHeader3">
+                    <div class="allOption">All</div>
+                </div>
+            </div>
+            <%allUser.forEach(function(val){%>
+                <div class="user" id="<%=val.username%>">
+                    <div class="profileImage" id="<%=val._id%>">
+                    <img src="/images/tiger.jpeg" alt="">
+                    </div>
+                    <div class="name">
+                        <p><%=val.username%></p>
+                    </div>
+                    <div class="time">
+                        <p><%=val.lastSeen%></p>
+                    </div>
+                </div>
+           <% })%>
+        </div> 
+        <div class="messageHeader">
+            <div class="friendImage">
+                <img src="/images/tiger.jpeg" alt="">
+            </div>
+            <div class="friendName">
+                <p><%=user.username%></p>
+            </div>
+            <div class="videoCall messageHeaderBox">
+                <i class="ri-vidicon-fill"></i>
+            </div>
+            <div class="search messageHeaderBox">
+                <i class="ri-search-line"></i>
+            </div>
+            <div class="menu messageHeaderBox">
+                <i class="ri-more-2-fill"></i>
+            </div>
+        </div>
+        <div class="messageBox">
+            
+        </div>
+        <div class="messageFooter">
+            <div class="mediaSelect" >
+                <i class="ri-add-large-line"></i>
+            </div>
+            <div class="searchBar">
+                <input class="input" placeholder="Type a message" type="text" name="message" id="">
+            </div>
+            <div class="mic">
+                <i class="ri-mic-fill"></i>
+            </div>
+        </div>
+    </main>
+    
+    <script src="/javaScripts/index.js"></script>
+</body>
+</html>
